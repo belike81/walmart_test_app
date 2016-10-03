@@ -6,7 +6,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-
+    product = ProductCreator.new(product_params)
+    if product.save
+      redirect_to products_url, notice: 'Product was successfully added.'
+    else
+      redirect_to products_url, notice: 'Unable to add specified product to the DB.'
+    end
   end
 
   def show
@@ -14,17 +19,15 @@ class ProductsController < ApplicationController
 
   def destroy
     @product.destroy
-    respond_to do |format|
-      format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-    end
+    redirect_to products_url, notice: 'Product was successfully destroyed.'
   end
 
   private
-    def set_product
-      @product = Product.find(params[:id])
-    end
+  def set_product
+    @product = Product.find(params[:id])
+  end
 
-    def product_params
-      params.require(:product).permit(:walmart_id, :name, :price, :url)
-    end
+  def product_params
+    params.permit(:url)
+  end
 end

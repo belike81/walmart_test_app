@@ -3,6 +3,6 @@ FactoryGirl.define do
     walmart_id 1
     name "MyString"
     price "9.99"
-    url "MyString"
+    url "http://www.wallmart.com/MyString"
   end
 end

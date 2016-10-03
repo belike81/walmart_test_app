@@ -19,7 +19,7 @@ class ProductCreator
   private
 
   def product_create
-    Product.create(@product_parser.product_params)
+    Product.find_or_create_by(@product_parser.product_params)
   end
 
   def create_reviews_for(product_id)

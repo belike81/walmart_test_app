@@ -19,6 +19,10 @@ RSpec.describe WalmartProductUrlParser, type: :model do
     it "returns a correct walmart_id" do
       expect(@valid_parser.product_params[:walmart_id]).to eql('551730595')
     end
+
+    it "returns a correct product_id" do
+      expect(@valid_parser.product_params[:product_id]).to eql('28806789')
+    end
   end
 
   context 'invalid_product_url' do
@@ -38,6 +42,10 @@ RSpec.describe WalmartProductUrlParser, type: :model do
 
     it "returns a nil walmart_id" do
       expect(@valid_parser.product_params[:walmart_id]).to eql(nil)
+    end
+
+    it "returns a nil product_id" do
+      expect(@valid_parser.product_params[:product_id]).to eql(nil)
     end
   end
 end

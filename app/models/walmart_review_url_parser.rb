@@ -17,7 +17,7 @@ class WalmartReviewUrlParser
 
   def parse_review_nodes
     @review_nodes.each do |review_node|
-      @review_params << { review_id: review_id, title: review_title(review_node), description: review_description(review_node), username: review_username(review_node), review_date: review_date(review_node) }
+      @review_params << { review_id: review_id(review_node), title: review_title(review_node), description: review_description(review_node), username: review_username(review_node), review_date: review_date(review_node) }
     end
     @review_params
   end
@@ -39,7 +39,7 @@ class WalmartReviewUrlParser
   end
 
   def review_date(node)
-    parsed_node(node.at_css('.customer-review-date'))
+    Date.strptime(parsed_node(node.at_css('.customer-review-date')), "%m/%d/%Y")
   end
 
   def parsed_node(node)

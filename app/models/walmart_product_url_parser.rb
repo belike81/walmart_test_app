@@ -3,7 +3,7 @@ class WalmartProductUrlParser
 
   def initialize (url)
     @url = url[:url]
-    @product_id = @url[/([^\/]+)$/]
+    @product_id = @url[/([^\/]\d+)$/]
     @document = get_document
   end
 

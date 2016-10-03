@@ -26,29 +26,6 @@ RSpec.describe ProductsController, type: :controller do
     end
   end
 
-  describe "POST #create" do
-    context "with valid params" do
-      it "creates a new Product" do
-        expect {
-          post :create, params: valid_attributes
-        }.to change(Product, :count).by(1)
-      end
-
-      it "redirects to products page" do
-        post :create, params: valid_attributes
-        expect(response).to redirect_to(products_url)
-      end
-    end
-
-    context "with invalid params" do
-      it "doesn't create a new Product" do
-        expect {
-          post :create, params: valid_attributes
-        }.not_to change(Product, :count).by(1)
-      end
-    end
-  end
-
   describe "DELETE #destroy" do
     before(:each) { @product = create(:product) }
 

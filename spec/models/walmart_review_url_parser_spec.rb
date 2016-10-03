@@ -17,7 +17,7 @@ RSpec.describe WalmartReviewUrlParser, type: :model do
     end
 
     it "returns a correct first review date" do
-      expect(@valid_parser.reviews_params[0][:review_date]).to eql('12/15/2013')
+      expect(@valid_parser.reviews_params[0][:review_date]).to eql(Date.strptime('12/15/2013', "%m/%d/%Y"))
     end
   end
 

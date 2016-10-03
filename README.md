@@ -1,24 +1,10 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a sample test app to fetch product data from the Walmart site and store it in the DB.
+This also fetches the reviews for the product and associates it with the product.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+What's missing and should be done in proper production app:
+* Better test coverage
+* Possibly add some integration tests 
+* Caching
+* Some refactoring is required (creation of separate classes for some jobs that are currently not separated)

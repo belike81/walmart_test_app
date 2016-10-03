@@ -13,7 +13,7 @@ class WalmartProductUrlParser
 
   def product_params
     {
-      product_id: @product_id
+      product_id: @product_id,
       walmart_id: product_walmart_id,
       name: product_name,
       price: product_price,

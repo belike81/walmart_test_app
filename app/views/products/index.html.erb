@@ -1,9 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <%= form_tag products_path, method: :post, class: 'form-inline' do %>
-  <%= label_tag :url, "Walmart product url:"  %>
-  <%= text_field_tag :url %>
-  <%= submit_tag "Add" %>
+  <div class="form-group">
+    <%= label_tag :url, "Walmart product url:", class: 'sr-only'  %>
+    <%= text_field_tag :url, nil, class: 'form-control' %>
+  </div>
+  <%= button_tag "Add", class: 'btn btn-primary' %>
 <% end %>
 
 <h2>Products added</h2>

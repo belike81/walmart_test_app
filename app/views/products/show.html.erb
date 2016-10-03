@@ -1,24 +1,20 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Walmart:</strong>
-  <%= @product.walmart_id %>
-</p>
-
-<p>
   <strong>Name:</strong>
   <%= @product.name %>
 </p>
 
 <p>
   <strong>Price:</strong>
-  <%= @product.price %>
+  <%= number_to_currency @product.price %>
 </p>
 
 <p>
   <strong>Url:</strong>
-  <%= @product.url %>
+  <%= link_to @product.url, @product.url, target: '_blank' %>
 </p>
 
-<%= link_to 'Edit', edit_product_path(@product) %> |
+<%= render @product.reviews %>
+
 <%= link_to 'Back', products_path %>

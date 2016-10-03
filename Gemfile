@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'jquery-rails'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
+gem 'resque'
 gem 'nokogiri'
 gem 'bootstrap', '~> 4.0.0.alpha4'
 source 'https://rails-assets.org' do

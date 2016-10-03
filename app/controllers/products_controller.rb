@@ -1,33 +1,21 @@
 class ProductsController < ApplicationController
-  before_action :set_product, only: [:show, :edit, :update, :destroy]
+  before_action :set_product, only: [:show, :destroy]
 
   def index
     @products = Product.all
   end
 
-  def show
+  def create
+
   end
 
-  def new
-    @product = Product.new
+  def show
   end
 
   def destroy
     @product.destroy
     respond_to do |format|
       format.html { redirect_to products_url, notice: 'Product was successfully destroyed.' }
-    end
-  end
-
-  def create
-    @product = Product.new(product_params)
-
-    respond_to do |format|
-      if @product.save
-        format.html { redirect_to @product, notice: 'Product was successfully created.' }
-      else
-        format.html { render :new }
-      end
     end
   end
 

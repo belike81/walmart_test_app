@@ -9,7 +9,7 @@ RSpec.describe WalmartReviewUrlParser, type: :model do
     end
 
     it "returns a correct first review username" do
-      expect(@valid_parser.reviews_params[0][:user_name]).to eql('MamaG85')
+      expect(@valid_parser.reviews_params[0][:username]).to eql('MamaG85')
     end
 
     it "returns a non-empty first review description" do

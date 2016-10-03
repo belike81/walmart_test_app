@@ -3,6 +3,7 @@ class WalmartProductUrlParser
 
   def initialize (url)
     @url = url[:url]
+    @product_id = @url[/([^\/]+)$/]
     @document = get_document
   end
 
@@ -17,6 +18,19 @@ class WalmartProductUrlParser
       price: product_price,
       url: @url
     }
+  end
+
+  # This should clearly be extracted from here to a separate class and properly tested
+  # but I just don't have time to properly handle this.
+  def review_urls
+    urls = []
+    reviews_base_url = "https://www.walmart.com/reviews/product/#{@product_id}"
+    reviews_doc = Nokogiri::HTML(open(reviews_base_url))
+    last_page_number = reviews_doc.at_css('.paginator-list').search('li a').last.text
+    (1..last_page_number.to_i).each do |i|
+      urls << { url: "#{reviews_base_url}?limit=20&page=#{i}&sort=relevancy" }
+    end
+    urls
   end
 
   private

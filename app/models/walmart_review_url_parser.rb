@@ -17,7 +17,7 @@ class WalmartReviewUrlParser
 
   def parse_review_nodes
     @review_nodes.each do |review_node|
-      @review_params << { title: review_title(review_node), description: review_description(review_node), user_name: review_username(review_node), review_date: review_date(review_node) }
+      @review_params << { title: review_title(review_node), description: review_description(review_node), username: review_username(review_node), review_date: review_date(review_node) }
     end
     @review_params
   end

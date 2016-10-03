@@ -1,7 +1,7 @@
 class ProductCreator
   attr_reader :errors
 
-  def initialize(url, parser: WalmartUrlParser)
+  def initialize(url, parser: WalmartProductUrlParser)
     @parser = parser.new(url)
     @errors = []
   end

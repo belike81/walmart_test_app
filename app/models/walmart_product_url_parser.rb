@@ -1,4 +1,4 @@
-class WalmartUrlParser
+class WalmartProductUrlParser
   REQUIRED_PARAMS = %w(walmart_id name price)
 
   def initialize (url)

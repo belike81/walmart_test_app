@@ -1,8 +1,8 @@
 require 'rails_helper'
 
-RSpec.describe WalmartUrlParser, type: :model do
+RSpec.describe WalmartProductUrlParser, type: :model do
   context 'valid_product_url' do
-    before(:each) { @valid_parser = WalmartUrlParser.new({url: 'https://www.walmart.com/ip/Ematic-9-Dual-Screen-Portable-DVD-Player-with-Dual-DVD-Players-ED929D/28806789'}) }
+    before(:each) { @valid_parser = WalmartProductUrlParser.new({url: 'https://www.walmart.com/ip/Ematic-9-Dual-Screen-Portable-DVD-Player-with-Dual-DVD-Players-ED929D/28806789'}) }
 
     it "is valid" do
       expect(@valid_parser.valid?).to be true
@@ -22,7 +22,7 @@ RSpec.describe WalmartUrlParser, type: :model do
   end
 
   context 'invalid_product_url' do
-    before(:each) { @valid_parser = WalmartUrlParser.new({url: 'http://www.google.com'}) }
+    before(:each) { @valid_parser = WalmartProductUrlParser.new({url: 'http://www.google.com'}) }
 
     it "is invalid" do
       expect(@valid_parser.valid?).to be false

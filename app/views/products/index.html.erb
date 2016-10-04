@@ -1,31 +1,48 @@
-<p id="notice"><%= notice %></p>
-
-<%= form_tag products_path, method: :post, class: 'form-inline' do %>
-  <div class="form-group">
-    <%= label_tag :url, "Walmart product url:", class: 'sr-only'  %>
-    <%= text_field_tag :url, nil, class: 'form-control' %>
+<% if flash[:notice] %>
+  <div id="notice" class="alert alert-info alert-dismissible fade in" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+    <%= notice %>
   </div>
-  <%= button_tag "Add", class: 'btn btn-primary' %>
 <% end %>
 
-<h2>Products added</h2>
-
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Price</th>
-      <th></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @products.each do |product| %>
-      <tr>
-        <td><%= link_to product.name, product %></td>
-        <td><%= number_to_currency product.price %></td>
-        <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row url_add_row">
+  <div class="col-sm-12">
+    <%= form_tag products_path, method: :post do %>
+      <div class="input-group">
+        <%= label_tag :url, "Walmart product url:", class: 'sr-only'  %>
+        <%= text_field_tag :url, nil, class: 'form-control' %>
+        <span class="input-group-btn">
+          <%= button_tag "Add", class: 'btn btn-primary' %>
+        </span>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h2>Products added</h2>
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @products.each do |product| %>
+          <tr>
+            <td><%= link_to product.name, product %></td>
+            <td><%= number_to_currency product.price %></td>
+            <td><%= link_to 'Destroy', product, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
